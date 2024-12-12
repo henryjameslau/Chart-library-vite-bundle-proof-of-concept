@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite Library</title>
+</head>
+<body>
+    <h1>Welcome to Charts Library demo</h1>
+    <p>This is a simple HTML page for the chart library project.</p>
+    <script src="./dist/vite-library.umd.js"></script>
+    <!-- <script type="module">
+        import {hello} from './dist/vite-library.es.js';
+        hello();
+    </script> -->
+
+
+    <script type="module">
+        import {createChart, hello} from './dist/vite-library.es.js';
+        import {barStackedData} from './lib/exampleData.js'
+        // hello();
+        const container = document.getElementById('chart-container');
+        const chart = createChart(container, barStackedData, {
+            source: "Source: Data Provider",
+            xAxisLabel: "Values",
+            valueSuffix: "%",
+            dataFormat:'json',
+        });
+    </script>
+
+    <div id="chart-container"></div>
+</body>
+</html>
